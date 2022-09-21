@@ -12,7 +12,7 @@ async-timeout = ">=4.0.0a3,<5.0"
 attrs = ">=17.3.0"
 charset-normalizer = ">=2.0,<3.0"
 frozenlist = ">=1.1.1"
-multidict = ">=4.5,<7.0"
+multidict = ">=4.5,<6.0"
 yarl = ">=1.0,<2.0"
 
 [package.extras]
@@ -1100,7 +1100,7 @@ version = "6.0.4"
 description = "multidict implementation"
 category = "dev"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.6"
 
 [[package]]
 name = "mypy"
@@ -2264,6 +2264,14 @@ name = "types-urllib3"
 version = "1.26.25.4"
 description = "Typing stubs for urllib3"
 category = "dev"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "types-urllib3"
+version = "1.26.24"
+description = "Typing stubs for urllib3"
+category = "main"
 optional = false
 python-versions = "*"
 
