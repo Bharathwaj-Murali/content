@@ -66,7 +66,7 @@ def __get_integration_config(client, integration_name, logging_module=logging):
 
 
 def test_integration_instance(client, module_instance, logging_module=logging):
-    connection_retries = 3
+    connection_retries = 5
     response_code = 0
     integration_of_instance = module_instance.get('brand', '')
     instance_name = module_instance.get('name', '')
@@ -77,7 +77,7 @@ def test_integration_instance(client, module_instance, logging_module=logging):
             response_data, response_code, _ = demisto_client.generic_request_func(self=client, method='POST',
                                                                                   path='/settings/integration/test',
                                                                                   body=module_instance,
-                                                                                  _request_timeout=120)
+                                                                                  _request_timeout=240)
             break
         except ApiException:
             logging_module.exception(
