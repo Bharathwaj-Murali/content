@@ -84,7 +84,7 @@ def test_integration_instance(client, module_instance, logging_module=logging):
                 'Failed to test integration instance, error trying to communicate with demisto server')
             return False, None
         except urllib3.exceptions.ReadTimeoutError:
-            logging_module.warning(f"Could not connect. Trying to connect for the {i + 1} time")
+            logging_module.warning(f"Could not connect to demisto server. Trying to connect for the {i + 1} time")
 
     if int(response_code) != 200:
         logging_module.error(f'Integration-instance test ("Test" button) failed. Bad status code: {response_code}')
