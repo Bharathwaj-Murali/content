@@ -31,7 +31,7 @@ def chmod_logs(server_ip: str):
 
 def download_logs(server_ip: str, aritfacts_dir: str, role: str):
     scp_string = f"scp {SSH_USER}@{server_ip}:/var/log/demisto/server.log " \
-        "{aritfacts_dir}/server_{role}_{server_ip}.log || echo 'WARN: Failed downloading server.log'"
+        f"{aritfacts_dir}/server_{role}_{server_ip}.log || echo 'WARN: Failed downloading server.log'"
     try:
         logging.debug(f'Downloading server logs from server {server_ip}')
         subprocess.check_output(scp_string, shell=True)
