@@ -31,7 +31,7 @@ cp -r ./content-test-conf/demisto.lic $DEMISTO_LIC_PATH
 cp -r ./content-test-conf/signDirectory $DEMISTO_PACK_SIGNATURE_UTIL_PATH
 cp -r ./content-test-conf/xsiam_servers.json $XSIAM_SERVERS_PATH
 
-if [ "$EXTRACT_MODELING_RULE_TESTDATA_FILES" == "true" ]; then
+if [[ "$IS_NIGHTLY" == "true" ]] || [[ "$EXTRACT_MODELING_RULE_TESTDATA_FILES" == "true" && "$UNDERSCORE_BRANCH" != "master" ]]; then
     cp -r ./content-test-conf/modelingrules ./modelingrules
 fi
 
