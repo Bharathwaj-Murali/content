@@ -122,7 +122,7 @@ xpanse-prepare-testing-bucket-upload-flow:
     - '[[ "create instances done" = $(cat "$ARTIFACTS_FOLDER/create_instances_done.txt" 2> /dev/null) ]] || (echo "this is a known issue with GitLab pipline please mention @esharf in your PR" && exit 1)'
     - EXIT_CODE=0
     - section_start "Download configuration"
-    - ./Tests/scripts/download_demisto_conf.sh  >> $ARTIFACTS_FOLDER/logs/installations.log
+    - ./Tests/scripts/download_conf_repos.sh  >> $ARTIFACTS_FOLDER/logs/installations.log
     - SECRET_CONF_PATH=$(cat secret_conf_path)
     - python3 ./Tests/scripts/add_secrets_file_to_build.py -sa "$GSM_SERVICE_ACCOUNT" -sf "$SECRET_CONF_PATH" -u "$DEMISTO_USERNAME" -p "$DEMISTO_PASSWORD" -gpid "$GSM_PROJECT_ID"
     - ./Tests/scripts/download_conf_repos.sh  >> $ARTIFACTS_FOLDER/logs/download_conf_repos.log
@@ -188,7 +188,7 @@ install-packs-in-server-master:
     - '[[ "create instances done" = $(cat "$ARTIFACTS_FOLDER/create_instances_done.txt" 2> /dev/null) ]] || (echo "this is a known issue with GitLab pipline please mention @esharf in your PR" && exit 1)'
     - EXIT_CODE=0
     - section_start "Download configuration"
-    - ./Tests/scripts/download_demisto_conf.sh  >> $ARTIFACTS_FOLDER/logs/installations.log
+    - ./Tests/scripts/download_conf_repos.sh  >> $ARTIFACTS_FOLDER/logs/installations.log
     - SECRET_CONF_PATH=$(cat secret_conf_path)
     - python3 ./Tests/scripts/add_secrets_file_to_build.py -sa "$GSM_SERVICE_ACCOUNT" -sf "$SECRET_CONF_PATH" -u "$DEMISTO_USERNAME" -p "$DEMISTO_PASSWORD" -gpid "$GSM_PROJECT_ID"
     - ./Tests/scripts/download_conf_repos.sh  >> $ARTIFACTS_FOLDER/logs/download_conf_repos.log
